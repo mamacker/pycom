@@ -6,15 +6,14 @@ from urequests import get
 from machine import I2C
 i2c = I2C(sda=Pin(23), scl=Pin(22), freq=400000)
 
-from vl6180 import Sensor
+from machine import ADC
+adc = ADC(Pin(32))            # create ADC object on ADC pin
+adc.read()              # read value, 0-1024
+
 
 print('Hello world! I can count to 10:')
 for i in range(1,11):
     print(i)
-
-# create an output pin on pin #0
-print('Setup the pin...')
-pin = Pin(12, Pin.OUT)
 
 def do_connect():
     import network
@@ -43,11 +42,11 @@ def retrieve_url(url):
 do_connect()
 print('Network is setup.')
 
-dist = Sensor(i2c);
-dist.init()
-print("Identifying.");
-print(dist.identify())
-
-
+pulse = Pin(27, Pin.OUT)
+pulse.value(0);
 while True:
-    res = retrieve_url('http://192.168.2.38:3000/' + str(dist.range() - 15));
+    pulse.value(1);
+    val = adc.read();
+    pulse.value(0);
+
+    res = retrieve_url('http://192.168.2.38:3000/' + str(val))

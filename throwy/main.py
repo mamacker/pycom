@@ -47,6 +47,10 @@ dist.init()
 print("Identifying.");
 print(dist.identify())
 
-
+times = 0
 while True:
-    res = retrieve_url('http://192.168.2.38:3000/' + str(dist.range() - 15));
+    if times % 50 == 0:
+        dist.init()
+        if times > 10000000:
+            times = 0
+    res = retrieve_url('http://192.168.2.2:9080/add?source=throwy1&stat=vl6180&type=sample&value=' + str(dist.range() - 15));

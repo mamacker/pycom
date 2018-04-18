@@ -61,14 +61,16 @@ for i in range(4,7):
 #addr = usocket.getaddrinfo("192.168.2.204", 5005)[0][-1];
 addr = usocket.getaddrinfo("192.168.2.38", 3001)[0][-1];
 
-times = 0
 while True:
-    select_channel(times % 3 + 4);
-    dist.start_range();
-    r = dist.range
-    print ("Range");
-    print (r);
-    times = times + 1
+    for i in range(4, 7):
+        select_channel(i + 4);
+        dist.start_range();
+
+    for i in range(4, 7):
+        select_channel(i + 4);
+        r = dist.range
+        print ("Range");
+        print (r);
 
     #s = usocket.socket(usocket.AF_INET, usocket.SOCK_DGRAM)
     #s.sendto(ustruct.pack('>H',r), addr);

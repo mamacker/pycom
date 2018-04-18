@@ -18,3 +18,6 @@ export AMPY_PORT=/dev/tty.SLAB_USBtoUART
    ampy run main.py
  * Upload it:
    ampy put main.py
+
+### To get on:
+screen $AMPY_PORT 115200

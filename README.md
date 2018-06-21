@@ -7,8 +7,8 @@ First esp8266 code that doesn't crash the processor.
  * Which will look like this in the end:
  ** ESP8266
  sudo esptool.py --port /dev/tty.SLAB_USBtoUART  write_flash --flash_size=detect 0 /Users/matt.amacker/Downloads/esp8266-20171101-v1.9.3.bin
- ** ESP32
- sudo esptool.py --chip esp32 --port /dev/tty.SLAB_USBtoUART  write_flash -z 0x1000 /Users/matt.amacker/Downloads/esp32-20180108-v1.9.3-238-g42c4dd09.bin
+ ** ESP32: https://micropython.org/download#esp32
+ sudo esptool.py --chip esp32 --port /dev/tty.SLAB_USBtoUART  write_flash -z 0x1000 ./esp32-20180621-v1.9.4-189-g34344a41.bin
  * The follow steps to install ampy:
   https://learn.adafruit.com/micropython-basics-load-files-and-run-code/install-ampy
 

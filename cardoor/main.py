@@ -34,7 +34,7 @@ def do_connect():
         print(str(net[0]), str(net[4]));
     if not wlan.isconnected():
         print('connecting to network...')
-        wlan.connect("IBFNET", "aluminum")
+        wlan.connect("IBF", "*********")
         while not wlan.isconnected():
             count = count + 1
             if count > 10:
@@ -69,6 +69,6 @@ while True:
     print ("Switch:", switch_data, cur_value);
     if cur_value != switch_data:
         switch_data = cur_value
-        res = retrieve_url('https://sleepless.com/iotbutton?value=' + str(switch_data));
+        res = retrieve_url('https://ardvarkfun.com/iotbutton?value=' + str(switch_data));
         print ("Url result:", str(cur_value), res);
     time.sleep(.3)
